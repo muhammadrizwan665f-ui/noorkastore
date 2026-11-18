@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "rail-store",
+  "name": "noorkastore",
   "compatibility_date": "2025-06-01",
   // Builds the site before every deploy, so it works even if the dashboard Build command is left empty.
   "build": { "command": "npm run build" },
