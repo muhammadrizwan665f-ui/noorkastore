@@ -7,4 +7,4 @@ export const WHATSAPP: string = ((import.meta as any).env?.VITE_WHATSAPP as stri
 export const CURRENCY = 'Rs.';
 // Vertical position of the rail's rod inside each garment photo, as % of the image height.
 // Real photos with the hanger hook at the very top → about 3. Adjust if the rod looks off.
-export const ROD_OFFSET_PCT = 3.2;
+export const ROD_OFFSET_PCT = 2.3;

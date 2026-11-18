@@ -58,7 +58,7 @@ function Shell() {
           </div>
         </section>
 
-        <section id="collection" className="border-b border-neutral-100 bg-white pb-2" aria-label="Colours">
+        <section id="collection" className="border-b border-neutral-100 bg-white pb-4" aria-label="Colours">
           <Rail products={PRODUCTS} onOpen={open} />
         </section>
 
