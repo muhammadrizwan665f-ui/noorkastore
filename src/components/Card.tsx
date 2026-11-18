@@ -2,10 +2,10 @@ import type { Product } from '../data/products';
 import { CURRENCY } from '../lib/config';
 import { fmtPrice } from '../lib/order';
 
-export default function Card({ p, badge, onOpen }: { p: Product; badge: string; onOpen: (p: Product) => void }) {
+export default function Card({ p, badge, onOpen }: { p: Product; badge?: string; onOpen: (p: Product) => void }) {
   return (
     <button onClick={() => onOpen(p)} className="group relative block w-full rounded-xl border border-neutral-100 bg-white p-2 text-left shadow-sm transition hover:shadow-md" aria-label={`${p.name}, ${fmtPrice(p.price, CURRENCY)}`}>
-      <span className="absolute left-2 top-2 z-10 rounded bg-blue-600 px-1.5 py-0.5 text-[10px] font-semibold text-white">{badge}</span>
+      {badge && <span className="absolute left-2 top-2 z-10 rounded bg-blue-600 px-1.5 py-0.5 text-[10px] font-semibold text-white">{badge}</span>}
       <div className="overflow-hidden rounded-lg bg-neutral-50"><img src={p.front} alt="" loading="eager" decoding="async" draggable={false} className="aspect-[860/1090] w-full object-contain object-top transition group-hover:scale-105" /></div>
       <p className="mt-2 text-[13px] font-medium text-neutral-800">{p.name}</p>
       <div className="mt-1 flex items-center justify-between">

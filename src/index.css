@@ -6,3 +6,6 @@ html { scroll-behavior: smooth; }
 button { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid #111; outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.rail-scroll { cursor: grab; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+.rail-scroll.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.rail-lean { transform: rotate(var(--lean, 0deg)); transition: transform .12s linear; will-change: transform; }
