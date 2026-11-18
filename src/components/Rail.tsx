@@ -15,11 +15,11 @@ export default function Rail({ products, onOpen }: { products: Product[]; onOpen
   return (
     <div className="relative h-full">
       <div ref={ref} className="no-scrollbar flex h-full snap-x items-start overflow-x-auto overflow-y-hidden px-4 pt-[4vh] sm:px-10" role="list" aria-label="Collection">
-        {products.map((p, i) => (
+        {products.map((p) => (
           <div key={p.id} role="listitem" className="group relative w-[62vw] max-w-[300px] shrink-0 snap-center sm:w-[260px] lg:w-[280px]">
             <span aria-hidden className="absolute -left-px -right-px h-px bg-neutral-800" style={{ top: `${ROD_OFFSET_PCT}%`, aspectRatio: 'auto' }} />
             <button onClick={() => onOpen(p)} className="block w-full origin-top group-hover:animate-sway focus-visible:animate-sway" aria-label={`${p.name}, ${fmtPrice(p.price, CURRENCY)}`}>
-              <img src={p.front} alt={p.name} loading={i < 5 ? 'eager' : 'lazy'} decoding="async" draggable={false} className="block aspect-[400/520] w-full select-none object-contain" />
+              <img src={p.front} alt={p.name} loading="eager" decoding="async" draggable={false} className="block aspect-[860/1180] w-full select-none object-contain" />
             </button>
           </div>
         ))}

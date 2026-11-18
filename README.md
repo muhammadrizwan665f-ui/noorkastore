@@ -4,8 +4,7 @@ Static clothing store (React + Vite + Tailwind) for Cloudflare Workers. Garments
 
 ## Edit before launch
 - `src/lib/config.ts` — `BRAND`, `TAGLINE`, `CURRENCY`, `ROD_OFFSET_PCT`. WhatsApp number: set `VITE_WHATSAPP` (digits with country code) as a build variable in Cloudflare, or edit `WHATSAPP`. Until set, the bag shows "Ordering is not available yet".
-- `src/data/products.ts` — the 15 pieces (name, price, sizes, sold-out sizes).
-- `public/products/NN-front.(png|webp)` / `NN-back.*` — real photos: transparent background, same canvas size, hanger hook at the top. Update the paths in `products.ts`. Delete the placeholder SVGs.
+- `public/products/NN-front.webp` / `NN-back.webp` — the 15 colours (already added). Set the real price in `src/data/products.ts` (`PRICE`).
 
 ## Run / deploy
 `npm install && npm run dev` · `npm run build` · `npm run deploy`

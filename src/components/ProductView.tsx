@@ -25,7 +25,7 @@ export default function ProductView({ product, list, onClose, onNav }: { product
       <button onClick={onClose} className="absolute right-5 top-4 z-10 p-2 text-sm tracking-wide sm:right-8" aria-label="Close">Close ✕</button>
       <div className="relative flex min-h-0 w-full max-w-md flex-1 items-center justify-center px-14 pt-12">
         <button onClick={() => step(-1)} aria-label="Previous piece" className="absolute left-2 top-1/2 -translate-y-1/2 p-3 text-3xl sm:-left-10">‹</button>
-        <div className="relative aspect-[400/520] w-full max-h-[52vh]">
+        <div className="relative aspect-[860/1180] w-full max-h-[52vh]">
           {(['front', 'back'] as const).map((s) => (
             <img key={s} src={product[s]} alt={`${product.name} ${s}`} draggable={false}
               className={`absolute inset-0 h-full w-full select-none object-contain transition-opacity duration-300 ${side === s ? 'opacity-100' : 'opacity-0'}`} />
