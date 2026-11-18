@@ -11,6 +11,7 @@ export default function ProductView({ product, list, onClose, onNav }: { product
   const idx = list.findIndex((p) => p.id === product.id);
   const step = (d: number) => onNav(list[(idx + d + list.length) % list.length].slug);
   useEffect(() => { setSide('front'); setSize(null); }, [product.id]);
+  useEffect(() => { const o = document.body.style.overflow; document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = o; }; }, []);
   useEffect(() => {
     const f = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1); };
     addEventListener('keydown', f); return () => removeEventListener('keydown', f);
@@ -18,7 +19,7 @@ export default function ProductView({ product, list, onClose, onNav }: { product
   const x0 = useRef<number | null>(null);
   const out = (s: string) => product.soldOut?.includes(s);
   return (
-    <div className="fixed inset-0 z-20 flex animate-fade flex-col items-center overflow-y-auto bg-white/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={product.name}
+    <div className="fixed inset-0 z-20 flex animate-fade flex-col items-center overflow-y-auto bg-white/70 backdrop-blur-md" role="dialog" aria-modal="true" aria-label={product.name}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
       onTouchStart={(e) => { x0.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => { if (x0.current == null) return; const dx = e.changedTouches[0].clientX - x0.current; x0.current = null; if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1); }}>
@@ -34,7 +35,7 @@ export default function ProductView({ product, list, onClose, onNav }: { product
         <button onClick={() => step(1)} aria-label="Next piece" className="absolute right-2 top-1/2 -translate-y-1/2 p-3 text-3xl sm:-right-10">›</button>
       </div>
       <div className="w-full max-w-md px-6 pb-8 text-center">
-        <h1 className="text-base font-medium tracking-wide">{product.name}</h1>
+        <h2 className="text-base font-medium tracking-wide">{product.name}</h2>
         <p className="mt-1 text-sm text-neutral-600">{fmtPrice(product.price, CURRENCY)}</p>
         <div className="mt-3 inline-flex gap-5 text-sm" role="group" aria-label="View">
           {(['front', 'back'] as const).map((s) => <button key={s} onClick={() => setSide(s)} aria-pressed={side === s} className={`pb-0.5 capitalize ${side === s ? 'border-b border-black' : 'text-neutral-400'}`}>{s}</button>)}
