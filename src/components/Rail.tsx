@@ -59,7 +59,7 @@ export default function Rail({ products, onOpen }: { products: Product[]; onOpen
             <span aria-hidden className="absolute -left-px -right-px h-1 rounded-full bg-gradient-to-b from-neutral-200 via-neutral-500 to-neutral-400 shadow-[0_1px_2px_rgba(0,0,0,.25)]" style={{ top: `${ROD_OFFSET_PCT}%` }} />
             <div className="rail-lean" style={{ transformOrigin: `50% ${ROD_OFFSET_PCT}%` }}>
               <button onClick={() => onOpen(p)} className="block w-full origin-top group-hover:animate-sway focus-visible:animate-sway" aria-label={`${p.name}, ${fmtPrice(p.price, CURRENCY)}`}>
-                <img src={p.front} alt={p.name} loading="eager" decoding="async" draggable={false} className="pointer-events-none block aspect-[860/1090] w-full select-none object-contain" />
+                <img src={p.thumb} alt={p.name} loading="eager" decoding="async" draggable={false} className="pointer-events-none block aspect-[860/1090] w-full select-none object-contain" />
               </button>
             </div>
           </div>

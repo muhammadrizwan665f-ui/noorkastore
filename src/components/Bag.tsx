@@ -17,7 +17,7 @@ export default function Bag() {
           {lines.length === 0 && <p className="py-10 text-center text-sm text-neutral-500">Your bag is empty.</p>}
           {lines.map((l) => (
             <div key={l.id + l.size} className="flex items-center gap-3 border-b border-neutral-100 py-4">
-              <img src={`/products/${l.id}-front.webp`} alt="" className="h-16 w-12 object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden'; }} />
+              <img src={`/products/${l.id}-front-sm.webp`} alt="" className="h-16 w-12 object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden'; }} />
               <div className="min-w-0 flex-1 text-sm"><p className="truncate">{l.name}</p><p className="text-neutral-500">Size {l.size} · {fmtPrice(l.price, CURRENCY)}</p></div>
               <div className="flex items-center gap-2 text-sm">
                 <button className="h-7 w-7 border" onClick={() => setQty(l.id, l.size, l.qty - 1)} aria-label="Decrease">−</button>

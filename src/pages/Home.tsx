@@ -18,7 +18,7 @@ export default function Home() {
             <Link to="/shop" className="mt-5 inline-flex h-11 items-center rounded-full bg-blue-600 px-6 text-sm font-semibold text-white">Shop Now →</Link>
           </div>
           <div className="relative mx-auto flex w-full max-w-md justify-center" aria-hidden>
-            <img src={PRODUCTS[0].front} alt="" className="-mr-10 w-[52%] -rotate-3 drop-shadow-xl" /><img src={PRODUCTS[13].front} alt="" className="mt-6 w-[52%] rotate-3 drop-shadow-xl" />
+            <img src={PRODUCTS[0].thumb} alt="" className="-mr-10 w-[52%] -rotate-3 drop-shadow-xl" /><img src={PRODUCTS[13].thumb} alt="" className="mt-6 w-[52%] rotate-3 drop-shadow-xl" />
           </div>
         </div>
       </section>

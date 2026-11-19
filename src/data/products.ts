@@ -1,6 +1,7 @@
 export interface Product {
   id: string; slug: string; name: string; price: number;
-  front: string; back: string;          // image paths under /public
+  front: string; back: string;          // full-size image paths under /public
+  thumb: string;                        // small front image for the rail and cards
   sizes: string[]; soldOut?: string[];  // sizes that cannot be ordered
 }
 // Price per T-shirt in PKR (Rs. 999 as in the design) — change here (one price for all, or edit per colour below).
@@ -9,7 +10,7 @@ const SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
 const COLOURS = ['Black', 'Brown', 'Green', 'Grey', 'Lime Green', 'Maroon', 'Navy Blue', 'Orange', 'Pink', 'Purple', 'Royal Blue', 'Sky Blue', 'Teal', 'White', 'Yellow'];
 export const PRODUCTS: Product[] = COLOURS.map((c, i) => {
   const id = String(i + 1).padStart(2, '0');
-  return { id, slug: c.toLowerCase().replace(/\s+/g, '-') + '-tee', name: `${c} T-Shirt`, price: PRICE, front: `/products/${id}-front.webp`, back: `/products/${id}-back.webp`, sizes: SIZES };
+  return { id, slug: c.toLowerCase().replace(/\s+/g, '-') + '-tee', name: `${c} T-Shirt`, price: PRICE, front: `/products/${id}-front.webp`, thumb: `/products/${id}-front-sm.webp`, back: `/products/${id}-back.webp`, sizes: SIZES };
 });
 
 // Homepage sections. New Arrivals = first 6 colours; Best Sellers = these ids (edit to match what really sells best).
